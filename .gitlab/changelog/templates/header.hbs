@@ -1,0 +1,21 @@
+{{!-- https://github.com/conventional-changelog/conventional-changelog-config-spec/blob/master/versions/2.0.0/README.md --}}
+{{!-- https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-writer#context --}}
+{{!-- Уровень заголовка --}}
+{{!-- Формирования версии релиза и ссылки на неё, если есть --}}
+{{#if isPatch~}}##{{~else~}}#{{~/if}} {{#if @root.linkCompare~}}
+  [{{version}}](
+  {{~#if @root.repository~}}
+    {{~#if @root.host}}
+      {{~@root.host}}/
+    {{~/if}}
+    {{~#if @root.owner}}
+      {{~@root.owner}}/
+    {{~/if}}
+    {{~@root.repository}}
+  {{~else}}
+    {{~@root.repoUrl}}
+  {{~/if~}}
+  /compare/{{previousTag}}...{{currentTag}})
+{{~else}}
+  {{~version}}
+{{~/if}}{{!-- Заголовок релиза --}}{{~#if title}} "{{title}}"{{~/if}}{{!-- Дата релиза --}}{{~#if date}} ({{date}}){{/if}}
