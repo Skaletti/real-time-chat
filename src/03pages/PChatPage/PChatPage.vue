@@ -102,7 +102,8 @@ onMounted(() => {
 }
 
 .sidebar {
-  width: 300px;
+  width: 100%;
+  max-width: 480px;
   color: var(--color-white);
   background: #343a40;
   padding: 20px;
@@ -191,11 +192,12 @@ onMounted(() => {
 }
 
 .chatbox-container {
-  top: 0;
-  right: 0;
+  //top: 0;
+  //right: 0;
   width: calc(100% - 350px);
   min-height: 100vh;
-  position: absolute;
+
+  //position: absolute;
   transition: all 0.3s;
 }
 </style>

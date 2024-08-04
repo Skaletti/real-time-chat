@@ -9,7 +9,7 @@
       </div>
     </header>
     <div class="chat-body">
-      <h2 class="welcome">Welcome to Chatbox</h2>
+      <h2 class="welcome">Welcome to chat</h2>
       <div class="text-outer">
         <div
           v-for="item in listMessage"
@@ -24,15 +24,8 @@
     <footer>
       <div class="footer">
         <div class="footer-inner">
-          <img class="icon pointer" src="apps/assets/images/picture.png" alt="select picture" />
-          <img class="icon pointer" src="apps/assets/images/sticker.png" alt="select sticker" />
           <input v-model="inputValue" type="text" class="input" @keyup.enter="sendMessage(inputValue)" />
-          <img
-            class="icon pointer"
-            src="apps/assets/images/send.png"
-            alt="send message"
-            @click="sendMessage(inputValue)"
-          />
+          <s-icon name="interface-send" width="24" height="24" class="icon pointer" @click="sendMessage(inputValue)" />
         </div>
       </div>
     </footer>
@@ -42,6 +35,7 @@
 <script setup lang="ts">
 import { getFirestore, collection, doc, onSnapshot, setDoc } from 'firebase/firestore'
 import moment from 'moment'
+import SIcon from 'shared/ui/SIcon/ui/SIcon.vue'
 import { onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useFirebaseApp } from 'vuefire'
@@ -58,11 +52,11 @@ const inputValue = ref('')
 const listMessage = ref([])
 const groupChatId = ref(null)
 
-const getGroupChatId = (id1, id2) => {
+const getGroupChatId = (id1: string, id2: string) => {
   return [id1, id2].sort().join('_')
 }
 
-const sendMessage = async (content) => {
+const sendMessage = async (content: string) => {
   if (content.trim() === '') {
     return
   }
