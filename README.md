@@ -1,6 +1,6 @@
-# НАЗВАНИЕ_ПРОЕКТА
+# Real Time Chat
 
-This template should help get you started developing with Vue 3 in Vite.
+This application will allow you to chat with your friends.
 
 ## Recommended IDE Setup
 
